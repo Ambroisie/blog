@@ -1,3 +1,46 @@
 baseURL: "https://belanyi.fr/"
 languageCode: "en-us"
 title: "Ambroisie's blog"
+
+theme: "anubis"
+paginate: 5
+disqusShortname: ""
+googleAnalytics: ""
+enableRobotsTXT: true
+
+menu:
+  main:
+  - identifier: about
+    name: About
+    title: About
+    url: /about/
+    weight: 0
+  - identifier: archive
+    name: Archive
+    title: Archive
+    url: /posts/
+    weight: 0
+  - identifier: tags
+    name: Tags
+    title: Tags
+    url: /tags/
+    weight: 0
+
+author:
+  name: "Bruno BELANYI"
+
+params:
+  author: "Bruno BELANYI"
+  description: "A simple blog about programmation"
+  dateFormat: "2006-01-02"
+  paginationSinglePost: true
+  style: auto-without-switcher
+
+taxonomies:
+  category: "categories"
+  tag: "tags"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # enable raw HTML in Markdown
