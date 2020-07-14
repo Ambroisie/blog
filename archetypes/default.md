@@ -1,6 +1,10 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-draft: true
+draft: false # I don't care for draft mode, git has branches for that
+description: ""
+tags:
+categories:
+favorite: false
 ---
 
