@@ -29,6 +29,10 @@ menu:
 author:
   name: "Bruno BELANYI"
 
+permalinks:
+  posts: /:year/:month/:day/:title/
+
+
 params:
   author: "Bruno BELANYI"
   description: "A simple blog about programmation"
