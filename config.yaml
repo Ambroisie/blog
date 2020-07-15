@@ -47,6 +47,7 @@ params:
 taxonomies:
   category: "categories"
   tag: "tags"
+  serie: "series"
 
 markup:
   goldmark:
