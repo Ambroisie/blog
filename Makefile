@@ -6,7 +6,7 @@ build: build-dev
 
 .PHONY: build-dev
 build-dev:
-	hugo -D
+	hugo -D -F
 
 .PHONY: build-prod
 build-prod:
@@ -17,7 +17,7 @@ serve: serve-dev
 
 .PHONY: serve-dev
 serve-dev:
-	hugo server -D
+	hugo server -D -F
 
 .PHONY: serve-prod
 serve-prod:
