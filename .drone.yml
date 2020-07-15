@@ -14,15 +14,15 @@ steps:
     image: klakegg/hugo
     commands:
       - hugo version
-      - hugo --destination /drone/src/build --minify
+      - hugo --minify
     environment:
       HUGO_ENV: production
 
   - name: deploy
     image: appleboy/drone-scp
     settings:
-      source: /drone/src/build/*
-      strip_components: 3 # Make sure the tarball doesn't contain leading path
+      source: public/*
+      strip_components: 1 # Make sure the tarball doesn't contain leading path
       rm: true # Make sure only the newly generated files are left
       host:
         from_secret: ssh_host
