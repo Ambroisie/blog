@@ -8,6 +8,11 @@
         <p>© {{ if isset .Site.Params "author"}}{{ .Site.Params.author }}, {{end}}{{ now.Year }}<br>
         {{ i18n "powered" | humanize }} <a target="_blank" rel="noopener noreferrer" href="https://gohugo.io/">Hugo</a>, {{ i18n "theme" }} <a target="_blank" rel="noopener noreferrer" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
         </p>
+        <a data-hint="Email" title="Email" href="mailto:bruno@belanyi.fr" rel="me"> Email </a>
+        <a data-hint="Github" title="Github" href="https://github.com/Ambroisie" target="_blank" rel="me"> Github </a>
+        <a data-hint="GitLab" title="GitLab" href="https://gitlab.com/Ambroisie" target="_blank" rel="me"> GitLab </a>
+        <a data-hint="Sourcehut" title="Sourcehut" href="https://sr.ht/~ambroisie/" target="_blank" rel="me"> Sourcehut </a>
+        <link rel="authorization_endpoint" href="https://indieauth.com/auth">
     </div>
 
     {{ partial "themeSwitcher.html" . }}
