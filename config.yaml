@@ -28,6 +28,7 @@ menu:
 
 author:
   name: "Bruno BELANYI"
+  email: "bruno@belanyi.fr"
 
 permalinks:
   posts: /:year/:month/:day/:title/
