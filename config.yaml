@@ -33,6 +33,7 @@ author:
   github: "Ambroisie"
   gitlab: "Ambroisie"
   sourcehut: "ambroisie"
+  linkedin: "bruno-belanyi"
 
 permalinks:
   posts: /:year/:month/:day/:title/
