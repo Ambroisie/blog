@@ -86,10 +86,12 @@ cannot keep the `vector` sorted to do binary searches and insertion, because
 the flyweights rely on their index inside the vector being stable.
 
 Instead, I'd recommend you use an `std::set` for the following reasons:
+
 - its semantic implies an ordering relationship, without duplication
 - it has an (asymptotically) efficient insertion.
 - it has stable iterators/pointers on insertion: a flyweight can just refer to
   a pointer to the object contained inside the `std::set`.
+
 That last bullet point is the reason why I'd recommend using a `set` instead of
 a sorted `vector`.
 
@@ -110,12 +112,12 @@ public:
 ```
 
 The little `&(*instances_.emplace(c))` does all the work for us:
+
 - `instances_.emplace(c)` creates the corresponding metadata only if it isn't in
   the set already.
 - We get an iterator back to the inserted element from this operation
 - We dereference it (`*<IT>`) to get a `GlyphMetadata&`
 - We take the address of that reference for our flyweight (`&(<REF>)`).
-
 
 ### Templating
 
