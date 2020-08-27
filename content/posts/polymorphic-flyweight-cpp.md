@@ -41,7 +41,7 @@ I also want to use RAII effectively, to avoid the headache of juggling
 lifetimes.
 
 To this effect, I need to store some `std::unique_ptr<TextureInterface>` inside
-my set. However, to do so I need to come up with a way to totally order my 
+my set. However, to do so I need to come up with a way to totally order my
 values behind the `TextureInterface`.
 
 [std::type_info](https://en.cppreference.com/w/cpp/types/type_info) comes to
@@ -51,7 +51,6 @@ the rescue: more specifically its sibling class
 I could order my textures by their `std::type_index` to order them first by
 chunks of types, and then sort the values inside the chunks by calling an
 ordering method on my polymorphic objects.
-
 
 ## Implementation
 
