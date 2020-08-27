@@ -68,7 +68,18 @@ project but have not explored some of its more powerful features.
 * `pull`/`fetch`
   * Our lord and savior: `git pull --rebase`
 
-You should head to [Learn git branching][learn-branching] to practice those
-notions with a nice visualization.
+## Going further
+
+I advise you to check out [Learn git branching][learn-branching] to practice a
+few of the notions I just wrote about, with a nice visualization of the commit
+graph to explain what you are doing along the way.
+
+Furthermore, the [Pro Git book][pro-git] is available online for free, and
+contains a lot of great content. You can read it whole, but I especially
+recommend checking out chapter 7 (*Git Tools*) and chapter 8 (*Git
+Configuration*). If you want to learn about the inner workings of `git` and how
+it stores the repository on your hard-drive, checkout chapter 10 (*Git
+Internals*).
 
 [learn-branching]: https://learngitbranching.js.org/
+[pro-git]: https://www.git-scm.com/book/en/v2
