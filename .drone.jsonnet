@@ -12,6 +12,14 @@ local Pipeline(isDev) = {
       recursive: true,
     },
     {
+      name: "markdownlint",
+      image: "06kellyjac/markdownlint-cli",
+      commands: [
+        "markdownlint --version",
+        "markdownlint content/",
+      ],
+    },
+    {
       name: "build",
       image: "klakegg/hugo",
       commands: [
