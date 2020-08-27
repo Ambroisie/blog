@@ -58,15 +58,33 @@ project but have not explored some of its more powerful features.
   * Commit early, commit often
   * Clean-up merge requests
 
-## Branches and decentralised distribution
+* Lost? Here's a map
+  * History manipulation can lose commits and other work
+  * `reflog` can help you find it again
 
-* Local/remote branch
-* Remote-tracking branches?
-  * Why doesn't my new `dev` branch push to the remote
-* Multiple remotes
-  * Example use-case: shared branches and local sandboxes
-* `pull`/`fetch`
-  * Our lord and savior: `git pull --rebase`
+## Tips and tricks
+
+Here are some basic pieces of knowledge which don't really belong to any other
+section, which I think needs to be said.
+
+### The importance of small commits
+
+* Small commits
+  * Why they're useful
+    * Blame
+    * Revert
+    * Review & scope
+  * `git add -p`
+
+* Stubborn rebase
+  * Example from `42sh`
+  * `git rerere`
+
+* Splitting a file with `blame` history
+  * Give attribution to `Old New Thing`
+
+* Binary search for a regression
+  * `bissect`
 
 ## Going further
 
