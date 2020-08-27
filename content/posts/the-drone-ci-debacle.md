@@ -55,7 +55,7 @@ drone-server:
   user: 1000:1000
 ```
 
-I tried everything on port `8080`, `firefox` did not show anything, neither 
+I tried everything on port `8080`, `firefox` did not show anything, neither
 did `wget`. I even tried to execute `wget` inside the `drone-server` container,
 to no avail!
 
