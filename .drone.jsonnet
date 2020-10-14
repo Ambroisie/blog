@@ -43,6 +43,16 @@ local Pipeline(isDev) = {
         port: { from_secret: "ssh_port" },
       },
     },
+    {
+      name: "notify",
+      image: "plugins/matrix",
+      settings: {
+        homeserver: { from_secret: "matrix_homeserver" },
+        roomid: { from_secret: "matrix_roomid" },
+        username: { from_secret: "matrix_username" },
+        password: { from_secret: "matrix_password" },
+      },
+    },
   ]
 };
 
