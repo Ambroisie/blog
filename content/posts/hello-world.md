@@ -7,6 +7,7 @@ tags:
   - test
 categories:
 favorite: false
+tikz: true
 ---
 
 ## Test post please ignore
@@ -30,3 +31,11 @@ fn main() {
 ```sh
 echo hello world | cut -d' ' -f 1
 ```
+
+### TikZJax support
+
+{{% tikz %}}
+  \begin{tikzpicture}
+    \draw (0,0) circle (1in);
+  \end{tikzpicture}
+{{% /tikz %}}
