@@ -52,6 +52,7 @@ local Pipeline(isDev) = {
         username: { from_secret: "matrix_username" },
         password: { from_secret: "matrix_password" },
       },
+      trigger: { status: [ "failure", "success", ] },
     },
   ]
 };
