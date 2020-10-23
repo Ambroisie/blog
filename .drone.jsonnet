@@ -2,7 +2,7 @@ local Pipeline(isDev) = {
   kind: "pipeline",
   name: if isDev then "deploy-dev" else "deploy-prod",
   # Dev ignores "master", prod only triggers on "master"
-  trigger: { branch: { [if isDev then "exclude" else "include"]: [ "master" ] } },
+  trigger: { branch: { [if isDev then "exclude" else "include"]: [ "main" ] } },
   # We want to clone the submodules, which isn't done by default
   clone: { disable: true },
   steps: [
