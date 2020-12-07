@@ -34,6 +34,7 @@ author:
   gitlab: "Ambroisie"
   sourcehut: "ambroisie"
   linkedin: "bruno-belanyi"
+  matrix: "@ambroisie:belanyi.fr"
 
 permalinks:
   posts: /:year/:month/:day/:title/
