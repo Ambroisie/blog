@@ -312,6 +312,16 @@ One very useful command you can add to your tool belt is `git add -p`, which
 prompts you interactively for each patch in your working directory : you can
 easily choose which parts of your changes should end up in the same commit.
 
+### Miscellaneous commands
+
+Here's a list of commands that you should read-up on, but I won't be presenting
+further:
+
+* `git bissect`
+* `git rerere`
+* `git stash`
+* and more...
+
 ## Going further
 
 I advise you to check out [Learn git branching][learn-branching] to practice a
