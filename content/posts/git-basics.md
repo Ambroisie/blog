@@ -1,6 +1,6 @@
 ---
 title: "Git Basics"
-date: 2020-08-27T16:22:07+02:00
+date: 2020-12-07 18:54:31+0100
 draft: false # I don't care for draft mode, git has branches for that
 description: ""
 tags:
