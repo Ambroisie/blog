@@ -294,22 +294,23 @@ section, which I think needs to be said.
 
 ### The importance of small commits
 
-* Small commits
-  * Why they're useful
-    * Blame
-    * Revert
-    * Review & scope
-  * `git add -p`
+You might have noticed that people keep saying that commits should be kept
+**atomic**. What does that mean and why should it matter?
 
-* Stubborn rebase
-  * Example from `42sh`
-  * `git rerere`
+Keeping commits atomic means that you should strive to commit your changes in
+the smallest unit of work possible. Instead of making one commit named *WIP: add
+stuff* at the end of the day, you should instead try to cut your work up into
+small units: `add tests for frobulator`, `account for foo in bar processing`,
+etc...
 
-* Splitting a file with `blame` history
-  * Give attribution to `Old New Thing`
+This way of working has multiple things going for it once you start taking
+advantage of `git`'s power: you can more easily reason about a line of code by
+using `blame`, you can more easily squash bugs using `revert`, you can more
+easily review the changes in an MR and keep its scope narrow.
 
-* Binary search for a regression
-  * `bissect`
+One very useful command you can add to your tool belt is `git add -p`, which
+prompts you interactively for each patch in your working directory : you can
+easily choose which parts of your changes should end up in the same commit.
 
 ## Going further
 
