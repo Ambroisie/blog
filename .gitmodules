@@ -1,3 +1,6 @@
 [submodule "themes/anubis"]
 	path = themes/anubis
 	url = https://github.com/mitrichius/hugo-theme-anubis.git
+[submodule "themes/hugo-atom-feed"]
+	path = themes/hugo-atom-feed
+	url = https://github.com/kaushalmodi/hugo-atom-feed.git
