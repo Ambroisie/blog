@@ -2,7 +2,9 @@ baseURL: "https://belanyi.fr/"
 languageCode: "en-us"
 title: "Ambroisie's blog"
 
-theme: "anubis"
+theme:
+  - "hugo-atom-feed"
+  - "anubis"
 paginate: 5
 disqusShortname: ""
 googleAnalytics: ""
@@ -39,6 +41,16 @@ author:
 permalinks:
   posts: /:year/:month/:day/:title/
 
+outputs:
+  # <domain>/atom.xml
+  home: [ "HTML", "RSS", "ATOM" ]
+  # <domain>/posts/atom.xml
+  section: [ "HTML", "RSS", "ATOM" ]
+  # <domain>/tags/mytag/atom.xml
+  taxonomy: [ "HTML", "RSS", "ATOM" ]
+
+ignoreErrors:
+  - "error-output-taxonomy"
 
 params:
   author: "Bruno BELANYI"
