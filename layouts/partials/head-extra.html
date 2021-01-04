@@ -3,3 +3,6 @@
     <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
     <script async src="https://tikzjax.com/v1/tikzjax.js"></script>
 {{ end }}
+{{ with .OutputFormats.Get "atom" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
