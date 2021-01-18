@@ -88,10 +88,27 @@ The perfect system for me has to be:
 
 ### What is it?
 
-* python
-* inspired by ledger, hledger
-* simple
-* *double entry accounting*
+[`beancount`][beancount] is a tool to do [double-entry accounting][double-entry]
+on the command line, using only plain text files. It is inspired by
+[`ledger`][ledger] and [`hledger`][hledger], both respected tools in the [*plain
+text accounting*][plain-text] community, from which `beancount` draws inspiration
+both in their syntax and their philosophy.
+
+The point of *plain text accounting* is to make it easier and more efficient to
+use the double-entry-style of accounting. This translates both in the syntax of
+the ledger files, as well as the simplifications made to double-entry accounting
+to make it seem more intuitive and easier to use.
+
+To be more specific about `beancount`, it is a tool written in Python, made to
+be kept simple and effective by its author. It is both very powerful from
+the get-go, and easy to extend thanks to a system of plug-ins using the dynamic
+nature of Python.
+
+[beancount]: https://beancount.github.io/
+[double-entry]: https://en.wikipedia.org/wiki/Double-entry_bookkeeping
+[ledger]: https://www.ledger-cli.org/
+[hledger]: https://hledger.org/
+[plain-text]: https://plaintextaccounting.org/
 
 ### Why did I choose it ?
 
