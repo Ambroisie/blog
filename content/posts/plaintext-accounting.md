@@ -183,5 +183,11 @@ commit them to the repository.
 
 ## What's next?
 
-* not accurately tracking my taxes from my pay check
-* not tracking my livret A, PEE, future PEL and AV
+After all this work, the journey is still not done. It turns out that accounting
+is kind of addictive. I am yet to be accounting for my taxes from my pay slips,
+and still need to start tracking my *Livret A* opened by my parents, *PEE*
+opened by EPITA, and other future investments.
+
+Finally, I will never be done with accounting, as there are only two things in
+life that are for certain: *death* and *taxes*, and only one of them is
+a one-time-thing.
