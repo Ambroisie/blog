@@ -1,0 +1,14 @@
+---
+title: "Wish lists"
+description: "Wish lists"
+date: 2021-01-18
+disable_feed: true
+---
+
+A few of my Amazon wish lists in case you want to give me a gift.
+
+* [Wish list](https://www.amazon.fr/hz/wishlist/ls/1FT0IO9JJTX57)
+* [Board games](https://www.amazon.fr/hz/wishlist/ls/2NY50W36THGMW)
+* [Cooking & kitchenware](https://www.amazon.fr/hz/wishlist/ls/2MNRCLPNABZSU)
+* [Data Structures & Algorithms](https://www.amazon.fr/hz/wishlist/ls/2XZPQSBOGOFC3)
+* [Programming](https://www.amazon.fr/hz/wishlist/ls/1R4KFV4H2D8IF)
