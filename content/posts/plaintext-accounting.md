@@ -47,22 +47,42 @@ my student job allowing me to avoid explicitly budgeting my money.
 
 ## Why do I want an actual accounting solution?
 
-* some people use their head
-  * I used to do that for a long time
-  * I want more fine-grained control and analysis of my habits
-  * I'm somewhat of a airhead, suffer from one-click-purchase-syndrome
-* some people use a spreadsheet
-  * bothersome
-  * easy to mess up
-  * hard to version
-    * I like `git`
-* I want
-  * foolproof
-  * exhaustive
-  * powerful analysis, and trivia
-    * how much have I spent at my neighbourhood bakery in the last semester ?
-  * pretty interface
-  * FLOSS and forward compatible
+As you can see from my history, I have spent my whole life until this point
+without using any form of accounting. Some people keep going their whole life
+without ever explicitly using any accounting solutions, having a ball-park idea
+of how much they have spent and how much they can afford to spend later.
+
+This, however, does not accommodate me anymore. I want to have more fine-grained
+control over my money, and be able to track and analyse my spending. I also know
+that I am somewhat of an air-head, and tracking my money explicitly will
+probably allow me to avoid, or at least reduce, lifestyle inflation once
+I finish school and enter the work-force.
+
+To that end, some people use a spreadsheet and simply keep track of their
+transactions as a row of in-n-out flow of money. This is also problematic to me:
+it is bothersome to come up with a useful template for budgeting, easy to mess
+up my reporting, especially with transactions that are harder to model using
+a simple template. Furthermore, it is very hard to version a spreadsheet, being
+a programmer, and lover of the command line, I want to be able to use `git` to
+keep track of my budget through time.
+
+The perfect system for me has to be:
+
+* foolproof: it is hard to mess up my reporting, and easy to know when I make
+  a mistake,
+* exhaustive: I can use the same system to keep track of my money, my
+  investments, my debts, and anything that I would like to track,
+* data-oriented: it should allow me to process my data and do some powerful
+  analysis on my past transactions: I want to be able to know how much money
+  I have spent at my neighbourhood bakery in the last semester.
+* have a pretty interface and export abilities: this allows me to talk with
+  a banker or an accountant without them having to know how to use my accounting
+  system,
+* be [Free and Open-Source Software][foss]: I can tinker with the sources if
+  something isn't to my liking, and more easily ensure that my data will still
+  be usable 20 years down the line.
+
+[foss]: https://en.wikipedia.org/wiki/Free_and_open-source_software
 
 ## Beancount
 
