@@ -28,6 +28,11 @@ menu:
     title: Tags
     url: /tags/
     weight: 0
+  - identifier: categories
+    name: Categories
+    title: Categories
+    url: /categories/
+    weight: 0
 
 author:
   name: "Bruno BELANYI"
