@@ -112,11 +112,37 @@ nature of Python.
 
 ### Why did I choose it ?
 
-* plain text accounting
-* wonderful documentation
-  * first real introduction to double-entry accounting
-* author's comparison with ledger and hledger
-* I *grok* python
+There are many different accounting solutions which I could have used, from my
+list of wanted features one can presume that I would naturally align myself with
+a double-entry accounting system: they are very powerful and make mistakes
+obvious.
+
+Furthermore, my want for an easy way to version-control my ledger eliminates
+candidates like [`GNUCash`][gnucash], which make use of XML or other
+hard-to-version file format. The power of plain text accounting is that it is at
+once easy to read, write, and version, but also that I can feel confident that
+I will still be able to access my data in 20 years.
+
+So, at this, point we're pretty much reduced to one of the *plain text
+accounting* software offerings. So why did I go with `beancount` rather than
+`ledger` or `hledger` ? There are three main factors which led me to this
+decision:
+
+* `beancount` has a wonderful documentation, specifically, I was first
+  introduced to the idea of *double-entry accounting* in its
+  [documentation][double-entry-beancount].
+* I read the author's [reasoning for writing `beancount` instead of using
+  `ledger` and `hledger`][why-beancount]: I found him very reasonable, and
+  agreed with a lot of his ideas (especially about being simpler, stricter,
+  and being independent of any transaction ordering)
+* finally, I *grok* python: I can dive in the source code to understand what is
+  being done and why, I can write a few lines and submit a PR if I feel like
+  something is missing from the base package, I can write a plug-in to customize
+  it my exact liking.
+
+[gnucash]: https://www.gnucash.org/
+[double-entry-beancount]: https://beancount.github.io/docs/the_double_entry_counting_method.html
+[why-beancount]: https://beancount.github.io/docs/a_comparison_of_beancount_and_ledger_hledger.html
 
 ### So how do I use it?
 
