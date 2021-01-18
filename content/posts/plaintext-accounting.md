@@ -146,10 +146,40 @@ decision:
 
 ### So how do I use it?
 
-* backlog of transactions
-* fava
-* simple makefile and git hooks
-* mobile phone app
+I have only recently started using `beancount`, after having it been on my TODO
+list for 6 months. As a New Year's resolution, I finally decided to bite the
+bullet and start seriously using it.
+
+The first step was importing a backlog of transactions: I opened accounts to
+represent my checking account, my cash on hand, my scrooge account (a special
+service used by the TAs to trade money between each other and buy snacks), and
+typed up how much money I had in each one. Importing the backlog allows me to
+both give some context to the amount of money I am currently holding, and have
+a representative set of transactions to open expense accounts and start
+categorising my spending.
+
+The second step was setting up [`fava`][fava], which is a web-UI for
+`beancount`. This allows me to check on my accounts from any point on Earth.
+This meant that I had to setup syncing for my ledger file between devices, for
+which I am using [`syncthing`][syncthing]. I have also had to make sure nobody
+could access the `fava` interface, I have accomplished the task with the help of
+[`Authelia`][authelia], which I had already deployed on my server to access the
+`syncthing` interface securely.
+
+Finally I setup a `git` repository, added a [`git hook`][git-hook] to make sure
+my ledger was [balanced][bean-check-hook], as well as a custom hook to make sure
+that it was formatted.
+
+I am now able to input my transactions on the go using the [`beancount` android
+app][beancount-android], and regularly using my computer to tidy them up and
+commit them to the repository.
+
+[fava]: https://github.com/beancount/fava/
+[syncthing]: https://syncthing.net/
+[authelia]: https://www.authelia.com/
+[git-hook]: https://git-scm.com/docs/githooks
+[bean-check-hook]: https://github.com/d6e/beancount-check/
+[beancount-android]: https://github.com/xuhcc/beancount-mobile
 
 ## What's next?
 
