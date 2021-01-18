@@ -24,9 +24,26 @@ income, expenses, and net worth.
 
 ## My accounting journey
 
-* gifts
-* credit card during high-school/CPGE
-* joining the YAKA-ACU team
+I went through most of my life without having to account for my money
+explicitly, making use of the "dad bank". I received small sums of money at
+Christmas and for birthdays, most of which went straight to an envelop that my
+dad kept for me. This is the money that I used to buy myself books, games, and
+other small things during childhood. My father kept track of the money and told
+me how much I had left whenever I asked him.
+
+During high school, my parents opened a bank account for me, and handed me
+a credit card to allow me to buy lunch, make gifts, and other discretionary
+spendings without having to explicitly go through them. It was regularly checked
+on by my parents to make sure I always had some amounts of money to my name in
+case I needed it, which they did up and until my engineering school. At this
+point I had a pretty good idea of how much I could spend and when I could spend
+it. This information could fit entirely in my head without any problems.
+
+Once I had spent a year at EPITA, I decided to apply to the team of teaching
+assistants. Between the money that I earned during my internship and what I
+was earning as an assistant, I was finally gaining some financial independence.
+Until very recently I was still mostly keeping track of my spending in my head,
+my student job allowing me to avoid explicitly budgeting my money.
 
 ## Why do I want an actual accounting solution?
 
