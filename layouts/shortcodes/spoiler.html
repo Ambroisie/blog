@@ -1,0 +1,5 @@
+{{- $title := .Get "title" | default (.Get 0) -}}
+<details>
+    <summary>{{ $title }}</summary>
+    <p>{{.Inner}}</p>
+</details>

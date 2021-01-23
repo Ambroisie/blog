@@ -39,3 +39,11 @@ echo hello world | cut -d' ' -f 1
     \draw (0,0) circle (1in);
   \end{tikzpicture}
 {{% /tikz %}}
+
+### Spoilers
+
+{{% spoiler "Don't open me" %}}
+Test 2
+
+Test 3
+{{% /spoiler %}}
