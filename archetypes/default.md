@@ -21,6 +21,7 @@ categories:
   - story
 series:
 favorite: false
+disable_feed: false
 ---
 
 <!--more-->
