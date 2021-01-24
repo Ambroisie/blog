@@ -15,6 +15,10 @@ tags:
   - hugo
   - test
 categories:
+  - programming
+  - slice-of-life
+  - software
+  - story
 series:
 favorite: false
 ---
