@@ -44,6 +44,20 @@
               nixpkgs-fmt = {
                 enable = true;
               };
+
+              markdown-lint = {
+                enable = true;
+
+                name = "Lint each post's markdown";
+
+                entry =
+                  let
+                    pkg = pkgs.nodePackages.markdownlint-cli;
+                  in
+                  "${pkg}/bin/markdownlint";
+
+                types = [ "markdown" ];
+              };
             };
           };
         };
