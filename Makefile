@@ -1,27 +1,17 @@
 .PHONY: all
-all: build
-
-.PHONY: build
-build: build-dev
+all: build-dev
 
 .PHONY: build-dev
 build-dev:
-	hugo -D -F
+	HUGO_BASEURL=https://dev.belanyi.fr hugo -D -F
 
 .PHONY: build-prod
 build-prod:
-	HUGO_ENV=production hugo
+	HUGO_ENV=production hugo --minify
 
 .PHONY: serve
-serve: serve-dev
-
-.PHONY: serve-dev
-serve-dev:
+serve:
 	hugo server -D -F
-
-.PHONY: serve-prod
-serve-prod:
-	hugo server
 
 .PHONY: clean
 clean:
