@@ -9,12 +9,11 @@
       ref = "master";
     };
 
-    # https://nixpk.gs/pr-tracker.html?pr=124808
     nixpkgs = {
       type = "github";
       owner = "NixOS";
       repo = "nixpkgs";
-      ref = "nixos-unstable";
+      ref = "nixpkgs-unstable";
     };
 
     pre-commit-hooks = {
