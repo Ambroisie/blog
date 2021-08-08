@@ -3,7 +3,7 @@ all: build-dev
 
 .PHONY: build-dev
 build-dev:
-	HUGO_BASEURL=https://dev.belanyi.fr hugo -D -F
+	HUGO_TITLE="Ambroisie's dev blog" HUGO_BASEURL=https://dev.belanyi.fr hugo -D -F
 
 .PHONY: build-prod
 build-prod:
