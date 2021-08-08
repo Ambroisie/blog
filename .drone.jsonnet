@@ -1,58 +1,59 @@
 local Pipeline(isDev) = {
   kind: "pipeline",
-  name: if isDev then "deploy-dev" else "deploy-prod",
+  type: "exec",
+  name: if isDev then "Deploy to dev" else "Deploy to prod",
   # Dev ignores "master", prod only triggers on "master"
   trigger: { branch: { [if isDev then "exclude" else "include"]: [ "main" ] } },
-  # We want to clone the submodules, which isn't done by default
-  clone: { disable: true },
   steps: [
     {
-      name: "clone",
-      image: "plugins/git",
-      recursive: true,
+      # We want to clone the submodules, which isn't done by default
+      name: "submodules",
+      commands: [
+        "git submodule update --recursive --init",
+      ]
     },
     {
-      name: "markdownlint",
-      image: "06kellyjac/markdownlint-cli",
+      # Include pre-commit checks, which include markdownlint
+      name: "check",
       commands: [
-        "markdownlint --version",
-        "markdownlint content/",
+        "nix flake check",
       ],
     },
     {
+      # If dev, include drafts and future articles, change base URL
       name: "build",
-      image: "klakegg/hugo",
       commands: [
-        "hugo version",
-        # If dev, include drafts and future articles, change base URL
-        "hugo --minify" + if isDev then " -D -F -b https://dev.belanyi.fr" else "",
+        "nix develop -c make " + if isDev then "build-dev" else "build-prod",
       ],
-      [if !isDev then "environment"]: { HUGO_ENV: "production" }
     },
     {
       name: "deploy",
-      image: "appleboy/drone-scp",
-      settings: {
-        source: "public/*",
-        strip_components: 1, # Remove 'public/' suffix from file paths
-        rm: true, # Remove previous files from target directory
-        host: { from_secret: "ssh_host" },
-        target: { from_secret: "ssh_target" + if isDev then "_dev" else "" },
-        username: { from_secret: "ssh_user" },
-        key: { from_secret: "ssh_key" },
-        port: { from_secret: "ssh_port" },
+      commands: [
+        "nix run github:ambroisie/nix-config#drone-scp",
+      ],
+      environment: {
+        SCP_SOURCE: "public/*",
+        SCP_STRIP_COMPONENTS: 1, # Remove 'public/' suffix from file paths
+        SCP_RM: true, # Remove previous files from target directory
+        SCP_HOST: { from_secret: "ssh_host" },
+        SCP_TARGET: { from_secret: "ssh_target" + if isDev then "_dev" else "" },
+        SCP_USERNAME: { from_secret: "ssh_user" },
+        SCP_KEY: { from_secret: "ssh_key" },
+        SCP_PORT: { from_secret: "ssh_port" },
       },
     },
     {
       name: "notify",
-      image: "plugins/matrix",
-      settings: {
-        homeserver: { from_secret: "matrix_homeserver" },
-        roomid: { from_secret: "matrix_roomid" },
-        username: { from_secret: "matrix_username" },
-        password: { from_secret: "matrix_password" },
+      commands: [
+        "nix run github:ambroisie/matrix-notifier",
+      ],
+      environment: {
+        ADDRESS: { from_secret: "matrix_homeserver" },
+        ROOM: { from_secret: "matrix_roomid" },
+        USER: { from_secret: "matrix_username" },
+        PASS: { from_secret: "matrix_password" },
       },
-      trigger: { status: [ "failure", "success", ] },
+      when: { status: [ "failure", "success", ] },
     },
   ]
 };
