@@ -33,7 +33,7 @@ local Pipeline(isDev) = {
       ],
       environment: {
         SCP_SOURCE: "public/*",
-        SCP_STRIP_COMPONENTS: 1, # Remove 'public/' suffix from file paths
+        TAR_STRIP_COMPONENTS: 1, # Remove 'public/' suffix from file paths
         SCP_RM: true, # Remove previous files from target directory
         SCP_HOST: { from_secret: "ssh_host" },
         SCP_TARGET: { from_secret: "ssh_target" + if isDev then "_dev" else "" },
