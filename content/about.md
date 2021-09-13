@@ -8,3 +8,6 @@ I'm a CS student at EPITA.
 
 You can find my CV [here](https://cv.belanyi.fr/en.pdf). Or
 [here](https://cv.belanyi.fr/fr.pdf) for the french version.
+
+If you are a friend or family, you might be looking for my [wish
+lists]({{< ref "wish-lists.md" >}}) to find some present ideas.
