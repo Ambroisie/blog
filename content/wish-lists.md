@@ -8,7 +8,7 @@ disable_feed: true
 A few of my Amazon wish lists in case you want to give me a gift.
 
 * [Wish list](https://www.amazon.fr/hz/wishlist/ls/1FT0IO9JJTX57)
-* [Board games](https://www.amazon.fr/hz/wishlist/ls/2NY50W36THGMW)
+* ~~[Board games](https://www.amazon.fr/hz/wishlist/ls/2NY50W36THGMW)~~
   * See the [Board Game Geek list](https://boardgamegeek.com/wishlist/Ambroisie)
   which is better curated and more up-to-date
 * [Cooking & kitchenware](https://www.amazon.fr/hz/wishlist/ls/2MNRCLPNABZSU)
