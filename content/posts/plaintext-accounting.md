@@ -2,7 +2,6 @@
 title: "Plaintext Accounting, beancount, and fava"
 date: 2021-01-15T15:54:51+01:00
 draft: false # I don't care for draft mode, git has branches for that
-description: "Or the story of my fall into systematically logging my expenses"
 tags:
   - accounting
   - cli

@@ -2,7 +2,6 @@
 title: "Generic Flyweight in C++"
 date: 2020-07-16T14:28:52+02:00
 draft: false # I don't care for draft mode, git has branches for that
-description: "A no-boilerplate flyweight pattern"
 tags:
   - design pattern
   - C++

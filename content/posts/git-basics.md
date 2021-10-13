@@ -2,7 +2,6 @@
 title: "Git Basics"
 date: 2020-12-07 18:54:31+0100
 draft: false # I don't care for draft mode, git has branches for that
-description: "The next step after the basics"
 tags:
   - git 
   - cli
