@@ -13,8 +13,8 @@ favorite: false
 ---
 
 Coming back from our last post about [generic flyweights in C++]({{< relref
-"generic-flyweight-cpp.md" >}}), we can write a flyweight that can be used with
-any abstract base classes.
+"../2020-07-16-generic-flyweight-cpp/index.md" >}}), we can write a flyweight
+that can be used with any abstract base classes.
 
 <!--more-->
 
