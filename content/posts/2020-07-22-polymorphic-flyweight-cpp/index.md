@@ -2,6 +2,7 @@
 title: "Polymorphic Flyweight in C++"
 date: 2020-07-22T16:16:39+0200
 draft: false # I don't care for draft mode, git has branches for that
+description: "A no-boilerplate flyweight pattern"
 tags:
   - design pattern
   - C++

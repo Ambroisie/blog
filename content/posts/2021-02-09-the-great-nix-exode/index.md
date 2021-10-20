@@ -2,6 +2,7 @@
 title: "The Great Nix Exode"
 date: 2021-02-09T20:38:51+01:00
 draft: false # I don't care for draft mode, git has branches for that
+description: "My journey into declarative infrastructure"
 tags:
   - self-hosting
   - nix

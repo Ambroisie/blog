@@ -2,6 +2,7 @@
 title: "Magic Conversions in C++"
 date: 2021-10-01T14:46:14+02:00
 draft: false # I don't care for draft mode, git has branches for that
+description: "How to get the compiler to infer the correct conversion"
 tags:
   - c++
   - design-pattern

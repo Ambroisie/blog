@@ -2,6 +2,7 @@
 title: "The Drone CI debacle"
 date: 2020-07-15T11:04:45+02:00
 draft: false # I don't care for draft mode, git has branches for that
+description: "The misadventures of deploying my blog"
 tags:
   - hugo
   - drone
