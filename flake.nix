@@ -61,15 +61,17 @@
           };
         };
 
-        devShell = pkgs.mkShell {
-          name = "blog";
+        devShells = {
+          default = pkgs.mkShell {
+            name = "blog";
 
-          buildInputs = with pkgs; [
-            gnumake
-            hugo
-          ];
+            buildInputs = with pkgs; [
+              gnumake
+              hugo
+            ];
 
-          inherit (self.checks.${system}.pre-commit) shellHook;
+            inherit (self.checks.${system}.pre-commit) shellHook;
+          };
         };
       }
     );
