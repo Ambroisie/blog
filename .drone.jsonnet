@@ -29,17 +29,16 @@ local Pipeline(isDev) = {
     {
       name: "deploy",
       commands: [
-        "nix run github:ambroisie/nix-config#drone-scp",
+        "nix run github:ambroisie/nix-config#drone-rsync",
       ],
       environment: {
-        SCP_SOURCE: "public/*",
-        TAR_STRIP_COMPONENTS: 1, # Remove 'public/' suffix from file paths
-        SCP_RM: true, # Remove previous files from target directory
-        SCP_HOST: { from_secret: "ssh_host" },
-        SCP_TARGET: { from_secret: "ssh_target" + if isDev then "_dev" else "" },
-        SCP_USERNAME: { from_secret: "ssh_user" },
-        SCP_KEY: { from_secret: "ssh_key" },
-        SCP_PORT: { from_secret: "ssh_port" },
+        # Trailing slash to synchronize the folder's *content* to the target
+        SYNC_SOURCE: "public/",
+        SYNC_HOST: { from_secret: "ssh_host" },
+        SYNC_TARGET: { from_secret: "ssh_target" + if isDev then "_dev" else "" },
+        SYNC_USERNAME: { from_secret: "ssh_user" },
+        SYNC_KEY: { from_secret: "ssh_key" },
+        SYNC_PORT: { from_secret: "ssh_port" },
       },
     },
     {
