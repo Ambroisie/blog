@@ -185,6 +185,16 @@ e.g: compilers, where the AST class hierarchy represents the data *only*, and
 all compiler stages and optimization passes are programmed by a series of
 visitors.
 
+One downside of this approach is that if you want to add `SpaceStation` as
+a sub-class of `SpaceObject`, and handle its collisions with other
+`SpaceObject`s, you need to:
+
+* Implement all `collide_with` methods for this new class.
+* Add a new virtual method `collide_with(SpaceStation&)` and implement it on
+  every sub-class.
+
+This can be inconvenient if your class hierarchy changes often.
+
 ## Multiple dispatch on a closed class hierarchy
 
 When even double dispatch is not enough, there is a way to do multiple dispatch
