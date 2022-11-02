@@ -258,3 +258,35 @@ int main() {
 Obviously, the issue with adding a new `SpaceStation` variant is once again
 apparent in this implementation. You will get a compile error unless you handle
 this new `SpaceStation` variant at every point you `visit` the `SpaceObject`s.
+
+## The Expression Problem
+
+One issue we have not been able to move past in these exemples is the
+[Expression Problem][expression-problem]. In two words, this means that we can't
+add a new data type (e.g: `SpaceStation`), or a new operation (e.g: `land_on`)
+to our current code without re-compiling it.
+
+[expression-problem]: https://en.wikipedia.org/wiki/Expression_problem
+
+This is the downside I was pointing out in our previous sections:
+
+* Data type extension: one can easily add a new `SpaceObject` child-class in the
+  OOP version, but needs to modify each implementation if we want to add a new
+  method to the `SpaceObject` interface to implement a new operation.
+* Operation extension: one can easily create a new function when using the
+  `std::variant` based representation, as pattern-matching easily allows us to
+  only handle the kinds of values we are interested in. But adding a new
+  `SpaceObject` variant means we need to modify and re-compile every
+  `std::visit` call to handle the new variant.
+
+There is currently no (good) way in standard C++ to tackle the Expression
+Problem. A paper ([N2216][N2216]) was written to propose a new language feature
+to improve the situation. However it looks quite complex, and never got followed
+up on for standardization.
+
+[N2216]: https://open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2216.pdf
+
+In the meantime, one can find some libraries (like [`yomm2`][yomm2]) that
+reduce the amount of boiler-plate needed to emulate this feature.
+
+[yomm2]: https://github.com/jll63/yomm2
