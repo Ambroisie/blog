@@ -254,3 +254,7 @@ int main() {
     // Calls CollideDispatch::operator()(Spaceship&, Asteroid&)
 }
 ```
+
+Obviously, the issue with adding a new `SpaceStation` variant is once again
+apparent in this implementation. You will get a compile error unless you handle
+this new `SpaceStation` variant at every point you `visit` the `SpaceObject`s.
