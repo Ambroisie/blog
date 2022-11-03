@@ -290,3 +290,40 @@ In the meantime, one can find some libraries (like [`yomm2`][yomm2]) that
 reduce the amount of boiler-plate needed to emulate this feature.
 
 [yomm2]: https://github.com/jll63/yomm2
+
+```cpp
+#include <yorel/yomm2/keywords.hpp>
+
+struct SpaceObject {
+    virtual ~SpaceObject() = default;
+};
+
+struct Asteroid : SpaceObject { /* fields, methods, etc... */ };
+
+struct Spaceship : SpaceObject { /* fields, methods, etc... */ };
+
+// Register all sub-classes of `SpaceObject` for use with open methods
+register_classes(SpaceObject, Asteroid, Spaceship);
+
+// Register the `collide` open method, which dispatches on two arguments
+declare_method(void, collide, (virtual_<SpaceObject&>, virtual_<SpaceObject&>));
+
+// Write the different implementations of `collide`
+define_method(void, collide, (Asteroid& left, Asteroid& right)) { /* work */ }
+define_method(void, collide, (Asteroid& left, Spaceship& right)) { /* work */ }
+define_method(void, collide, (Spaceship& left, Asteroid& right)) { /* work */ }
+define_method(void, collide, (Spaceship& left, Spaceship& right)) { /* work */ }
+
+
+int main() {
+    yorel::yomm2::update_methods();
+
+    auto asteroid = std::make_unique<Asteroid>();
+    auto spaceship = std::make_unique<Spaceship>();
+
+    collide(*asteroid, *spaceship); // Calls (Asteroid, Spaceship) version
+    collide(*spaceship, *asteroid); // Calls (Spaceship, Asteroid) version
+    collide(*asteroid, *asteroid); // Calls (Asteroid, Asteroid) version
+    collide(*spaceship, *spaceship); // Calls (Spaceship, Spaceship) version
+}
+```
