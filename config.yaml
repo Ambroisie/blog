@@ -42,6 +42,7 @@ author:
   sourcehut: "ambroisie"
   linkedin: "bruno-belanyi"
   matrix: "@ambroisie:belanyi.fr"
+  mastodon: "nixos.paris/@ambroisie"
 
 permalinks:
   posts: /:year/:month/:day/:title/
