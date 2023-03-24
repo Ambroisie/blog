@@ -317,7 +317,7 @@ easily choose which parts of your changes should end up in the same commit.
 Here's a list of commands that you should read-up on, but I won't be presenting
 further:
 
-* `git bissect`
+* `git bisect`
 * `git rerere`
 * `git stash`
 * and more...
