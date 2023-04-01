@@ -1,3 +1,6 @@
+variables:
+- &all_events ["push", "cron", "deployment", "manual"]
+
 labels:
   type: exec
 
@@ -21,12 +24,16 @@ pipeline:
   image: bash
   commands:
   - nix flake check
+  when:
+    event: *all_events
 
 - name: build (${TYPE})
   image: bash
   commands:
   # If dev, include drafts and future articles, change base URL
   - nix develop -c make ${MAKE_TARGET}
+  when:
+    event: *all_events
 
 - name: deploy (${TYPE})
   image: bash
@@ -46,6 +53,8 @@ pipeline:
     target: sync_host
   commands:
   - "nix run github:ambroisie/nix-config#drone-rsync"
+  when:
+    event: *all_events
 
 - name: notify
   image: bash
@@ -61,6 +70,7 @@ pipeline:
   commands:
   - nix run github:ambroisie/matrix-notifier
   when:
+    event: *all_events
     status:
     - failure
     - success
