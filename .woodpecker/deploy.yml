@@ -1,0 +1,66 @@
+labels:
+  type: exec
+
+matrix:
+  include:
+    - TYPE: dev
+      MAKE_TARGET: build-dev
+      SSH_TARGET: ssh_target_dev
+    - TYPE: prod
+      MAKE_TARGET: build-prod
+      SSH_TARGET: ssh_target
+
+# Run the correct matrix build on the correct branch
+when:
+  evaluate: |
+    CI_PIPELINE_EVENT in ["push", "cron", "deployment", "manual"]
+    and ((CI_COMMIT_BRANCH == CI_REPO_DEFAULT_BRANCH) == ("${TYPE}" == "prod"))
+
+pipeline:
+- name: check
+  image: bash
+  commands:
+  - nix flake check
+
+- name: build (${TYPE})
+  image: bash
+  commands:
+  # If dev, include drafts and future articles, change base URL
+  - nix develop -c make ${MAKE_TARGET}
+
+- name: deploy (${TYPE})
+  image: bash
+  environment:
+  # Trailing slash to synchronize the folder's *content* to the target
+  - SYNC_SOURCE=public/
+  secrets:
+  - source: ssh_key
+    target: sync_key
+  - source: ssh_port
+    target: sync_port
+  - source: ${SSH_TARGET}
+    target: sync_target
+  - source: ssh_user
+    target: sync_username
+  - source: ssh_host
+    target: sync_host
+  commands:
+  - "nix run github:ambroisie/nix-config#drone-rsync"
+
+- name: notify
+  image: bash
+  secrets:
+  - source: matrix_homeserver
+    target: address
+  - source: matrix_password
+    target: pass
+  - source: matrix_roomid
+    target: room
+  - source: matrix_username
+    target: user
+  commands:
+  - nix run github:ambroisie/matrix-notifier
+  when:
+    status:
+    - failure
+    - success
