@@ -14,5 +14,3 @@ A few of my Amazon wish lists in case you want to give me a gift.
 * [Cooking & kitchenware](https://www.amazon.fr/hz/wishlist/ls/2MNRCLPNABZSU)
 * [Data Structures & Algorithms](https://www.amazon.fr/hz/wishlist/ls/2XZPQSBOGOFC3)
 * [Programming](https://www.amazon.fr/hz/wishlist/ls/1R4KFV4H2D8IF)
-* Other items:
-  * [iFixit Pro Tech Toolit](https://store.ifixit.fr/products/pro-tech-toolkit)
