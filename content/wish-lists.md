@@ -16,3 +16,4 @@ A few of my Amazon wish lists in case you want to give me a gift.
 * [Programming](https://www.amazon.fr/hz/wishlist/ls/1R4KFV4H2D8IF)
 * Other items:
   * [Chef's presses](https://www.thechefspress.com/shop)
+  * [Lego bonsai tree](https://www.lego.com/en-gb/product/bonsai-tree-10281)
