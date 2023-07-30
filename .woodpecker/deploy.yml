@@ -2,7 +2,7 @@ variables:
 - &all_events ["push", "cron", "deployment", "manual"]
 
 labels:
-  type: exec
+  backend: local
 
 matrix:
   include:
