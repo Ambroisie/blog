@@ -16,4 +16,6 @@ A few of my Amazon wish lists in case you want to give me a gift.
 * [Programming](https://www.amazon.fr/hz/wishlist/ls/1R4KFV4H2D8IF)
 * Other items:
   * [Chef's presses](https://www.thechefspress.com/shop)
+    * [UK link](https://www.kitchenprovisions.co.uk/products/the-chefs-press-8oz-13oz)
+    * [FR link](https://www.thekitchenlab.fr/fr/p/la-presse-du-chef-poids-de-friture-bruce-hill-13-oz/)
   * [Lego bonsai tree](https://www.lego.com/en-gb/product/bonsai-tree-10281)
