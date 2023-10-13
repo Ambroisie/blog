@@ -18,4 +18,8 @@ A few of my Amazon wish lists in case you want to give me a gift.
   * [Chef's presses](https://www.thechefspress.com/shop)
     * [UK link](https://www.kitchenprovisions.co.uk/products/the-chefs-press-8oz-13oz)
     * [FR link](https://www.thekitchenlab.fr/fr/p/la-presse-du-chef-poids-de-friture-bruce-hill-13-oz/)
+  * Knives
+    * [Gyuto, damascus finish, 210mm](https://www.kitchenprovisions.co.uk/collections/stainless-steel/products/gyuto-knife-vg10-damascus-finish-ohishi)
+    * [Gyuto, nashiji finish, 240mm](https://www.kitchenprovisions.co.uk/collections/kanehiro/products/gyuto-knife-ginsan-stainless-steel-nashiji-finish-kanehiro?variant=39743550718014)
+    * [Gyuto, polished finish, black ferrule 240mm](https://www.kitchenprovisions.co.uk/collections/sukenari/products/gyuto-knife-hap40-powder-steel-polished-finish-sukenari?variant=39743545016382)
   * [Lego bonsai tree](https://www.lego.com/en-gb/product/bonsai-tree-10281)
