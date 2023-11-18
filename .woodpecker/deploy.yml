@@ -15,7 +15,7 @@ when:
   evaluate: |
     ((CI_COMMIT_BRANCH == CI_REPO_DEFAULT_BRANCH) == ("${TYPE}" == "prod"))
 
-pipeline:
+steps:
 - name: check
   image: bash
   commands:
