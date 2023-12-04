@@ -21,4 +21,6 @@ A few of my Amazon wish lists in case you want to give me a gift.
   * Knives
     * [Gyuto, damascus finish, 210mm](https://www.kitchenprovisions.co.uk/collections/stainless-steel/products/gyuto-knife-vg10-damascus-finish-ohishi)
     * [Gyuto, polished finish, black ferrule 240mm](https://www.kitchenprovisions.co.uk/collections/sukenari/products/gyuto-knife-hap40-powder-steel-polished-finish-sukenari?variant=39743545016382)
+  * [Combustion Inc thermometer and display](https://combustion.inc/products/predictive-thermometer-and-display)
+    * [Get the one with the range extender if you *really* want to spoil me](https://combustion.inc/products/predictive-thermometer-display)
   * [Lego bonsai tree](https://www.lego.com/en-gb/product/bonsai-tree-10281)
