@@ -48,3 +48,33 @@ def connected_components(graph: Graph) -> list[set[Node]]:
     # Return a list of disjoint sets corresponding to each connected component
     return list(components.values())
 ```
+
+## Implementation
+
+I will show how to implement `UnionFind` for integers, though it can easily be
+extended to be used with arbitrary types (e.g: by mapping each element
+one-to-one to a distinct integer, or using a different set representation).
+
+### Representation
+
+Creating a new disjoint set is easy enough:
+
+```python
+class UnionFind:
+    _parent: list[int]
+    _rank: list[int]
+
+    def __init__(self, size: int):
+        # Each node is in its own set, making it its own parent...
+        self._parents = list(range(size))
+        # ... And its rank 0
+        self._rank = [0] * size
+```
+
+We represent each set through the `_parent` field: each element of the set is
+linked to its parent, until the root node which is its own parent. When first
+initializing the structure, each element is in its own set, so we initialize
+each element to be a root and make it its own parent (`_parent[i] == i` for all
+`i`).
+
+The `_rank` field is an optimization which we will touch on in a later section.
