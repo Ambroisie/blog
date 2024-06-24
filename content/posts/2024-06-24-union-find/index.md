@@ -109,3 +109,46 @@ length is reduced by half), making each subsequent `find(...)` faster.
 
 Other compression schemes exist, along the spectrum between faster shortening
 the chain faster earlier, or updating `_parent` fewer times per `find(...)`.
+
+### Union
+
+A naive implementation of `union(...)` is simple enough to write:
+
+```python
+def union(self, lhs: int, rhs: int) -> int:
+    # Replace both element by their root parent
+    lhs = self.find(lhs)
+    rhs = self.find(rhs)
+    # arbitrarily merge one into the other
+    self._parent[rhs] = lhs
+    # Return the new root
+    return lhs
+```
+
+Once again, improvements can be made. Depending on the order in which we call
+`union(...)`, we might end up creating a long chain from the leaf of the tree to
+the root node, leading to slower `find(...)` operations. If at all possible, we
+would like to keep the trees as shallow as possible.
+
+To do so, we want to avoid merging taller trees into smaller ones, so as to keep
+them as balanced as possible. Since a higher tree will result in a slower
+`find(...)`, keeping the trees balanced will lead to increased performance.
+
+This is where the `_rank` field we mentioned earlier comes in: the _rank_ of an
+element is an upper bound on its height in the tree. By keeping track of this
+_approximate_ height, we can keep the trees balanced when merging them.
+
+```python
+def union(self, lhs: int, rhs: int) -> int:
+    lhs = self.find(lhs)
+    rhs = self.find(rhs)
+    # Always keep `lhs` as the taller tree
+    if (self._rank[lhs] < self._rank[rhs])
+        lhs, rhs = rhs, lhs
+    # Merge the smaller tree into the taller one
+    self._parent[rhs] = lhs
+    # Update the rank when merging trees of approximately the same size
+    if self._rank[lhs] == self._rank[rhs]:
+        self._rank[lhs] += 1
+    return lhs
+```
