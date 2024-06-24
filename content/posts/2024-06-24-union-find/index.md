@@ -78,3 +78,34 @@ each element to be a root and make it its own parent (`_parent[i] == i` for all
 `i`).
 
 The `_rank` field is an optimization which we will touch on in a later section.
+
+### Find
+
+A naive Implementation of `find(...)` is simple enough to write:
+
+```python
+def find(self, elem: int) -> int:
+    # If `elem` is its own parent, then it is the root of the tree
+    if (parent := self._parent[elem]) == elem:
+        return elem
+    # Otherwise, recurse on the parent
+    return self.find(parent)
+```
+
+However, going back up the chain of parents each time we want to find the root
+node (an `O(n)` operation) would make for disastrous performance. Instead we can
+do a small optimization called _path splitting_.
+
+```python
+def find(self, elem: int) -> int:
+    while (parent := self._parent[elem]) != elem:
+        # Replace each parent link by a link to the grand-parent
+        elem, self._parent[elem] = parent, self._parent[parent]
+    return elem
+```
+
+This flattens the chain so that each node links more directly to the root (the
+length is reduced by half), making each subsequent `find(...)` faster.
+
+Other compression schemes exist, along the spectrum between faster shortening
+the chain faster earlier, or updating `_parent` fewer times per `find(...)`.
