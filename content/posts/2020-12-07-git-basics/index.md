@@ -8,8 +8,6 @@ tags:
   - cli
 categories:
   - programming
-series:
-  - Git basics
 favorite: false
 ---
 
