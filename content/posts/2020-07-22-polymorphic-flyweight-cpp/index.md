@@ -68,7 +68,7 @@ public:
         const std::type_index lhs_i(lhs);
         const std::type_index rhs_i(rhs);
         if (lhs_i != rhs_i)
-            returh lhs_i < rhs_i;
+            return lhs_i < rhs_i;
         // We are now assured that both classes have the same type
         return less_than(rhs);
     }
