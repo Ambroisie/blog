@@ -16,7 +16,7 @@ favorite: false
 The flyweight is a well-known
 [GoF](https://en.wikipedia.org/wiki/Design_Patterns) design pattern.
 
-It's intent is to minimize memory usage by reducing the number of instantiations
+Its intent is to minimize memory usage by reducing the number of instantiations
 of a given object.
 
 I will show you how to implement a robust flyweight in C++, as well as a way to
