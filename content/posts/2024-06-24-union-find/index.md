@@ -142,6 +142,9 @@ _approximate_ height, we can keep the trees balanced when merging them.
 def union(self, lhs: int, rhs: int) -> int:
     lhs = self.find(lhs)
     rhs = self.find(rhs)
+    # Bail out early if they already belong to the same set
+    if lhs == rhs:
+      return lhs
     # Always keep `lhs` as the taller tree
     if (self._rank[lhs] < self._rank[rhs])
         lhs, rhs = rhs, lhs
