@@ -30,33 +30,32 @@ steps:
 - name: deploy (${TYPE})
   image: bash
   environment:
-  # Trailing slash to synchronize the folder's *content* to the target
-  - SYNC_SOURCE=public/
-  secrets:
-  - source: ssh_key
-    target: sync_key
-  - source: ssh_port
-    target: sync_port
-  - source: ${SSH_TARGET}
-    target: sync_target
-  - source: ssh_user
-    target: sync_username
-  - source: ssh_host
-    target: sync_host
+    # Trailing slash to synchronize the folder's *content* to the target
+    SYNC_SOURCE: public/
+    SYNC_KEY:
+      from_secret: ssh_key
+    SYNC_PORT:
+      from_secret: ssh_port
+    SYNC_TARGET:
+      from_secret: ${SSH_TARGET}
+    SYNC_USERNAME:
+      from_secret: ssh_user
+    SYNC_HOST:
+      from_secret: ssh_host
   commands:
   - "nix run github:ambroisie/nix-config#drone-rsync"
 
 - name: notify
   image: bash
-  secrets:
-  - source: matrix_homeserver
-    target: address
-  - source: matrix_password
-    target: pass
-  - source: matrix_roomid
-    target: room
-  - source: matrix_username
-    target: user
+  environment:
+    ADDRESS:
+      from_secret: matrix_homeserver
+    ROOM:
+      from_secret: matrix_roomid
+    USER:
+      from_secret: matrix_username
+    PASS:
+      from_secret: matrix_password
   commands:
   - nix run github:ambroisie/matrix-notifier
   when:
