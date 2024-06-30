@@ -114,3 +114,58 @@ def remove(self, key: str) -> bool:
     # Otherwise, recurse on the child corresponding to the first letter
     return self._children[key[0]].remove(key[1:])
 ```
+
+### Fuzzy matching
+
+Fuzzily matching a given word is where the real difficulty is: the key is to
+realize we can use the prefix-tree nature of a _Trie_ to avoid doing wasteful
+work.
+
+By leveraging the prefix visit order of the tree, we can build an iterative
+Levenshtein distance matrix, in much the same way one would do so in its
+[Dynamic Programming] implementation (see the [Wagner-Fisher algorithm]).
+
+[Dynamic Programming]: https://en.wikipedia.org/wiki/Dynamic_programming
+[Wagner-Fisher algorithm]: https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm
+
+```python
+class FuzzyResult[T](NamedTuple):
+    distance: int
+    key: str
+    value: T
+
+
+def get_fuzzy(self, key: str, max_distance: int = 0) -> Iterator[FuzzyResult[T]]:
+    def helper(
+        current_word: str,
+        node: Trie[T],
+        previous_row: list[int],
+    ) -> Iterator[tuple[int, T]]:
+        # Iterative Levenshtein
+        current_row = [previous_row[0] + 1]
+        current_char = current_word[-1]
+        for column, key_char in enumerate(key, start=1):
+            insertion = current_row[column - 1] + 1
+            deletion = previous_row[column] + 1
+            replacement = previous_row[column - 1] + (key_char != current_char)
+            current_row.append(min(insertion, deletion, replacement))
+
+        # If we are under the max distance, match this node
+        if (distance := current_row[-1]) <= max_distance and node._value != None:
+            # Only if it has a value of course
+            yield FuzzyResult(distance, current_word, node._value)
+
+        # If we can potentially still match children, recurse
+        if min(current_row) <= max_distance:
+            for c, child in node._children.items():
+                yield from helper(current_word + c, child, current_row)
+
+    # Build the first row -- the edit distance from the empty string
+    row = list(range(len(key) + 1))
+
+    # Base case for the empty string
+    if (distance := row[-1]) <= max_distance and self._value != None:
+        yield FuzzyResult(distance, "", self._value)
+    for c, child in self._children.items():
+        yield from helper(c, child, row)
+```
