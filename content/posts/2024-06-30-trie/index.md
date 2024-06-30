@@ -97,3 +97,20 @@ def insert(self, key: str, value: T) -> bool:
       # Otherwise, recurse on the child corresponding to the first letter
       return self._children[key[0]].insert(key[1:], value)
 ```
+
+### Removal
+
+Removal should also look familiar.
+
+```python
+def remove(self, key: str) -> bool:
+    # Have we matched the full key?
+    if not key:
+        was_mapped = self._value is None
+        # Remove the value
+        self._value = None
+        # Return whether it was mapped
+        return was_mapped
+    # Otherwise, recurse on the child corresponding to the first letter
+    return self._children[key[0]].remove(key[1:])
+```
