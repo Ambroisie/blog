@@ -63,3 +63,18 @@ character.
 
 The string key will be implicit by the position of a node in the tree: the empty
 string at the root, one-character strings as its direct children, etc...
+
+### Search
+
+An exact match look-up is easily done: we go down the tree until we've exhausted
+the key. At that point we've either found a mapped value or not.
+
+```python
+def get(self, key: str) -> T | None:
+    # Have we matched the full key?
+    if not key:
+        # Store the `T` if mapped, `None` otherwise
+        return self._value
+    # Otherwise, recurse on the child corresponding to the first letter
+    return self._children[key[0]].get(key[1:])
+```
