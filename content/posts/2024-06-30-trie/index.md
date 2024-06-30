@@ -78,3 +78,22 @@ def get(self, key: str) -> T | None:
     # Otherwise, recurse on the child corresponding to the first letter
     return self._children[key[0]].get(key[1:])
 ```
+
+### Insertion
+
+Adding a new value to the _Trie_ is similar to a key lookup, only this time we
+store the new value instead of returning it.
+
+```python
+def insert(self, key: str, value: T) -> bool:
+    # Have we matched the full key?
+    if not key:
+        # Check whether we're overwriting a previous mapping
+        was_mapped = self._value is None
+        # Store the corresponding value
+        self._value = value
+        # Return whether we've performed an overwrite
+        return was_mapped
+      # Otherwise, recurse on the child corresponding to the first letter
+      return self._children[key[0]].insert(key[1:], value)
+```
