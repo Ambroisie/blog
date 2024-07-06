@@ -140,3 +140,22 @@ def insert(self, val: str) -> None:
     self._buf[self._gap_start : self._gap_start + len(val)] = val
     self._gap_start += len(val)
 ```
+
+### Deletion
+
+Removing text from the buffer simply expands the gap in the corresponding
+direction, shortening the string's prefix/suffix. This makes it very cheap.
+
+The methods are named after the `backspace` and `delete` keys on the keyboard.
+
+```python
+def backspace(self, dist: int = 1) -> None:
+    assert dist <= self.prefix_length
+    # Extend gap to the left
+    self._gap_start -= dist
+
+def delete(self, dist: int = 1) -> None:
+    assert dist <= self.suffix_length
+    # Extend gap to the right
+    self._gap_end += dist
+```
