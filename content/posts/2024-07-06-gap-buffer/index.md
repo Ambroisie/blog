@@ -121,3 +121,22 @@ def grow(self, capacity: int) -> None:
     self._buf = new_buf
     self._gap_end += added_capacity
 ```
+
+### Insertion
+
+Inserting text at the cursor's position means filling up the gap in the middle
+of the buffer. To do so we must first make sure that the gap is big enough, or
+grow the buffer accordingly.
+
+Then inserting the text is simply a matter of copying its characters in place,
+and moving the start of the gap further right.
+
+```python
+def insert(self, val: str) -> None:
+    # Ensure we have enouh space to insert the whole string
+    if len(val) > self.gap_length:
+        self.grow(max(self.capacity * 2, self.string_length + len(val)))
+    # Fill the gap with the given string
+    self._buf[self._gap_start : self._gap_start + len(val)] = val
+    self._gap_start += len(val)
+```
