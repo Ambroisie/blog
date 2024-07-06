@@ -33,3 +33,42 @@ insertion at the cursor.
 
 Moving the cursor moves the gap around the buffer, the prefix and suffix getting
 shorter/longer as required.
+
+## Implementation
+
+I'll be writing a sample implementation in Python, as with the rest of the
+[series]({{< ref "/series/cool-algorithms/">}}). I don't think it showcases the
+elegance of the _Gap Buffer_ in action like a C implementation full of
+`memmove`s would, but it does makes it short and sweet.
+
+### Representation
+
+We'll be representing the gap buffer as an actual list of characters.
+
+Given that Python doesn't _have_ characters, let's settle for a list of strings,
+each representing a single character...
+
+```python
+Char = str
+
+class GapBuffer:
+    # List of characters, contains prefix and suffix of string with gap in the middle
+    _buf: list[Char]
+    # The gap is contained between [start, end) (i.e: buf[start:end])
+    _gap_start: int
+    _gap_end: int
+
+    # Visual representation of the gap buffer:
+    # This is a very  [                     ]long string.
+    # |<----------------------------------------------->| capacity
+    # |<------------>|                       |<-------->| string
+    #                 |<------------------->|             gap
+    # |<------------>|                                    prefix
+    #                                        |<-------->| suffix
+    def __init__(self, initial_capacity: int = 16) -> None:
+        assert initial_capacity > 0
+        # Initialize an empty gap buffer
+        self._buf = [""] * initial_capacity
+        self._gap_start = 0
+        self._gap_end = initial_capacity
+```
