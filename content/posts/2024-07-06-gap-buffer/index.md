@@ -99,3 +99,25 @@ def prefix_length(self) -> int:
 def suffix_length(self) -> int:
   return self.capacity - self._gap_end
 ```
+
+### Growing the buffer
+
+I've written this method in a somewhat non-idiomatic manner, to make it closer
+to how it would look in C using `realloc` instead.
+
+It would be more efficient to use slicing to insert the needed extra capacity
+directly, instead of making a new buffer and copying characters over.
+
+```python
+def grow(self, capacity: int) -> None:
+    assert capacity >= self.capacity
+    # Create a new buffer with the new capacity
+    new_buf = [""] * capacity
+    # Move the prefix/suffix to their place in the new buffer
+    added_capacity = capacity - len(self._buf)
+    new_buf[: self._gap_start] = self._buf[: self._gap_start]
+    new_buf[self._gap_end + added_capacity :] = self._buf[self._gap_end :]
+    # Use the new buffer, account for added capacity
+    self._buf = new_buf
+    self._gap_end += added_capacity
+```
