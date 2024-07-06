@@ -72,3 +72,30 @@ class GapBuffer:
         self._gap_start = 0
         self._gap_end = initial_capacity
 ```
+
+### Accessors
+
+I'm mostly adding these for exposition, and making it easier to write `assert`s
+later.
+
+```python
+@property
+def capacity(self) -> int:
+  return len(self._buf)
+
+@property
+def gap_length(self) -> int:
+  return self._gap_end - self._gap_start
+
+@property
+def string_length(self) -> int:
+  return self.capacity - self.gap_length
+
+@property
+def prefix_length(self) -> int:
+  return self._gap_start
+
+@property
+def suffix_length(self) -> int:
+  return self.capacity - self._gap_end
+```
