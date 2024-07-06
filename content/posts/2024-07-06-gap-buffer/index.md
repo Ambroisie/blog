@@ -23,3 +23,13 @@ represent files and editable buffers. The most famous of them probably being
 [emacs]: https://www.gnu.org/software/emacs/manual/html_node/elisp/Buffer-Gap.html
 
 <!--more-->
+
+## What does it do?
+
+A _Gap Buffer_ is simply a list of characters, similar to a normal string, with
+the added twist of splitting it into two side: the prefix and suffix, on either
+side of the cursor. In between them, a gap is left to allow for quick
+insertion at the cursor.
+
+Moving the cursor moves the gap around the buffer, the prefix and suffix getting
+shorter/longer as required.
