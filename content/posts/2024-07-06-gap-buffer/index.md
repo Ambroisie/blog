@@ -159,3 +159,33 @@ def delete(self, dist: int = 1) -> None:
     # Extend gap to the right
     self._gap_end += dist
 ```
+
+### Moving the cursor
+
+Moving the cursor along the buffer will shift letters from one side of the gap
+to the other, moving them accross from prefix to suffix and back.
+
+I find Python's list slicing not quite as elegant to read as a `memmove`, though
+it does make for a very small and efficient implementation.
+
+```python
+def left(self, dist: int = 1) -> None:
+    assert dist <= self.prefix_length
+    # Shift the needed number of characters from end of prefix to start of suffix
+    self._buf[self._gap_end - dist : self._gap_end] = self._buf[
+        self._gap_start - dist : self._gap_start
+    ]
+    # Adjust indices accordingly
+    self._gap_start -= dist
+    self._gap_end -= dist
+
+def right(self, dist: int = 1) -> None:
+    assert dist <= self.suffix_length
+    # Shift the needed number of characters from start of suffix to end of prefix
+    self._buf[self._gap_start : self._gap_start + dist] = self._buf[
+        self._gap_end : self._gap_end + dist
+    ]
+    # Adjust indices accordingly
+    self._gap_start += dist
+    self._gap_end += dist
+```
