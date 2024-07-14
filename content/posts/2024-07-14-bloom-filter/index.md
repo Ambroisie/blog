@@ -62,3 +62,18 @@ class BloomFilter[T]:
         self._bits = 0
         self._hash_functions = hash_functions
 ```
+
+### Inserting a key
+
+To add an element to the filter, we take the output from each hash function and
+use that to set a bit in the filter. This combination of bit will identify the
+element, which we can use for lookup later.
+
+```python
+def insert(self, val: T) -> None:
+    # Iterate over each hash
+    for f in self._hash_functions:
+        n = f(val) % BIT_COUNT
+        # Set the corresponding bit
+        self._bit |= 1 << n
+```
