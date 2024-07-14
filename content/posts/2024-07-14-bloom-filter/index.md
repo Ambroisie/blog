@@ -24,3 +24,16 @@ data seeks).
 [wiki]: https://en.wikipedia.org/wiki/Bloom_filter
 
 <!--more-->
+
+## What does it do?
+
+A _Bloom Filter_ can be understood as a hash-set which can either tell you:
+
+* An element is _not_ part of the set.
+* An element _may be_ part of the set.
+
+More specifically, one can tweak the parameters of the filter to make it so that
+the _false positive_ rate of membership is quite low.
+
+I won't be going into those calculations here, but they are quite trivial to
+compute, or one can just look up appropriate values for their use case.
