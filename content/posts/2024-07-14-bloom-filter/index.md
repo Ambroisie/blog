@@ -77,3 +77,21 @@ def insert(self, val: T) -> None:
         # Set the corresponding bit
         self._bit |= 1 << n
 ```
+
+### Querying a key
+
+Because the _Bloom Filter_ does not actually store its elements, but some
+derived data from hashing them, it can only definitely say if an element _does
+not_ belong to it. Otherwise, it _may_ be part of the set, and should be checked
+against the actual underlying store.
+
+```python
+def may_contain(self, val: T) -> bool:
+    for f in self._hash_functions:
+        n = f(val) % BIT_COUNT
+        # If one of the bits is unset, the value is definitely not present
+        if not (self._bit & (1 << n)):
+            return False
+    # All bits were matched, `val` is likely to be part of the set
+    return True
+```
