@@ -97,3 +97,63 @@ def get(self, key: K) -> T | None:
             node = node.left
     return None
 ```
+
+### Insertion
+
+To insert a new `key` into the tree, we identify which leaf position it should
+be inserted at. We then generate the node's priority, insert it at this
+position, and rotate the node upwards until the heap property is respected.
+
+```python
+type ChildField = Literal["left, right"]
+
+def insert(self, key: K, value: V) -> bool:
+    # Empty treap base-case
+    if self._root is None:
+        self._root = Node(key, value)
+        # Signal that we're not overwriting the value
+        return False
+    # Keep track of the parent chain for rotation after insertion
+    parents = []
+    node = self._root
+    while node is not None:
+        # Insert a pre-existing key
+        if node.key == key:
+            node.value = value
+            return True
+        #  Go down the tree, keep track of the path through the tree
+        field = "left" if key < node.key else "right"
+        parents.append((node, field))
+        node = getattr(node, field)
+    #  Key wasn't found, we're inserting a new node
+    child = Node(key, value)
+    parent, field = parents[-1]
+    setattr(parent, field, child)
+    # Rotate the new node up until we respect the decreasing priority property
+    self._rotate_up(child, parents)
+    # Key wasn't found, signal that we inserted a new node
+    return False
+
+def _rotate_up(
+    self,
+    node: Node[K, V],
+    parents: list[tuple[Node[K, V], ChildField]],
+) -> None:
+    while parents:
+        parent, field = parents.pop()
+        # If the parent has higher priority, we're done rotating
+        if parent.priority >= node.priority:
+            break
+        # Check for grand-parent/root of tree edge-case
+        if parents:
+            # Update grand-parent to point to the new rotated node
+            grand_parent, field = parents[-1]
+            setattr(grand_parent, field, node)
+        else:
+            # Point the root to the new rotated node
+            self._root = node
+        other_field = "left" if field == "right" else "right"
+        # Rotate the node up
+        setattr(parent, field, getattr(node, other_field))
+        setattr(node, other_field, parent)
+```
