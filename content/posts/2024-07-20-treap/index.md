@@ -27,3 +27,13 @@ parent's priority is always higher than any of its children.
 [wiki]: https://en.wikipedia.org/wiki/Treap
 
 <!--more-->
+
+## What does it do?
+
+By randomizing the priority value of each key at insertion time, we ensure a
+high likelihood that the tree stays _roughly_ balanced, avoiding degenerating to
+unbalanced O(N) height.
+
+Here's a sample tree created by inserting integers from 0 to 250 into the tree:
+
+{{< graphviz file="treap.gv" />}}
