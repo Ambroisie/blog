@@ -15,7 +15,7 @@ favorite: false
 disable_feed: false
 ---
 
-To kickoff the [series]({{< ref "/series/cool-algorithms/">}}) of posts about
+To kickoff the [series]({{< ref "/series/cool-algorithms/" >}}) of posts about
 algorithms and data structures I find interesting, I will be talking about my
 favorite one: the [_Disjoint Set_][wiki]. Also known as the _Union-Find_ data
 structure, so named because of its two main operations: `ds.union(lhs, rhs)` and
