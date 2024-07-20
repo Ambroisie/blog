@@ -8,6 +8,7 @@ tags:
 categories:
 favorite: false
 tikz: true
+graphviz: true
 ---
 
 ## Test post please ignore
@@ -39,6 +40,16 @@ echo hello world | cut -d' ' -f 1
     \draw (0,0) circle (1in);
   \end{tikzpicture}
 {{% /tikz %}}
+
+### Graphviz support
+
+{{% graphviz %}}
+  graph {
+    a -- b
+    b -- c
+    c -- a
+  }
+{{% /graphviz %}}
 
 ### Spoilers
 

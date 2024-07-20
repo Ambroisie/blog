@@ -3,6 +3,23 @@
     <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
     <script async src="https://tikzjax.com/v1/tikzjax.js"></script>
 {{ end }}
+<!-- Graphviz support -->
+{{ if (.Params.graphviz) }}
+    <script src="https://cdn.jsdelivr.net/npm/@viz-js/viz@3.7.0/lib/viz-standalone.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+        Viz.instance().then(function(viz) {
+            Array.prototype.forEach.call(document.querySelectorAll("pre.graphviz"), function(x) {
+                var svg = viz.renderSVGElement(x.innerText);
+                // Let CSS take care of the SVG size
+                svg.removeAttribute("width")
+                svg.setAttribute("height", "auto")
+                x.replaceChildren(svg)
+            })
+        })
+    })();
+    </script>
+{{ end }}
 {{ with .OutputFormats.Get "atom" -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
