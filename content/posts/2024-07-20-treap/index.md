@@ -79,3 +79,21 @@ class Treap[K, V]:
         # The tree starts out empty
         self._root = None
 ```
+
+### Search
+
+Searching the tree is the same as in any other _Binary Search Tree_.
+
+```python
+def get(self, key: K) -> T | None:
+    node = self._root
+    # The usual BST traversal
+    while node is not None:
+        if node.key == key:
+            return node.value
+        elif node.key < key:
+            node = node.right
+        else:
+            node = node.left
+    return None
+```
