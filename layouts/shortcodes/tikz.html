@@ -1,3 +1,16 @@
 <script type="text/tikz">
-    {{.Inner}}
+    {{ with .Get "file" }}
+        {{ if eq (. | printf "%.1s") "/" }}
+            {{/* Absolute path are from root of site. */}}
+            {{ $.Scratch.Set "filepath" . }}
+        {{ else }}
+            {{/* Relative paths are from page directory. */}}
+            {{ $.Scratch.Set "filepath" $.Page.File.Dir }}
+            {{ $.Scratch.Add "filepath" . }}
+        {{ end }}
+
+        {{ $.Scratch.Get "filepath" | readFile }}
+    {{ else }}
+        {{.Inner}}
+    {{ end }}
 </script>
