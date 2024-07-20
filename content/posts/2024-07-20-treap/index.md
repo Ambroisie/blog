@@ -37,3 +37,45 @@ unbalanced O(N) height.
 Here's a sample tree created by inserting integers from 0 to 250 into the tree:
 
 {{< graphviz file="treap.gv" />}}
+
+## Implementation
+
+I'll be keeping the theme for this [series] by using Python to implement the
+_Treap_. This leads to somewhat annoying code to handle the rotation process,
+which is easier to do in C using pointers.
+
+[series]: {{< ref "/series/cool-algorithms/" >}}
+
+### Representation
+
+Creating a new `Treap` is easy: the tree starts off empty, waiting for new nodes
+to insert.
+
+Each `Node` must keep track of the `key`, the mapped `value`, and the node's
+`priority` (which is assigned randomly). Finally it must also allow for storing
+two children (`left` and `right`).
+
+```python
+class Node[K, V]:
+    key: K
+    value: V
+    priority: float
+    left: Node[K, V] | None
+    righg: Node[K, V] | None
+
+    def __init__(self, key: K, value: V):
+        # Store key and value, like a normal BST node
+        self.key = key
+        self.value = value
+        # Priority is derived randomly
+        self.priority = random()
+        self.left = None
+        self.right = None
+
+class Treap[K, V]:
+    _root: Node[K, V] | None
+
+    def __init__(self):
+        # The tree starts out empty
+        self._root = None
+```
