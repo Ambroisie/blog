@@ -20,6 +20,13 @@
     })();
     </script>
 {{ end }}
+<!-- Mermaid support -->
+{{ if (.Params.mermaid) }}
+    <script type="module" async>
+        import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@latest/dist/mermaid.esm.min.mjs";
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+{{ end }}
 {{ with .OutputFormats.Get "atom" -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}

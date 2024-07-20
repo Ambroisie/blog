@@ -9,6 +9,7 @@ categories:
 favorite: false
 tikz: true
 graphviz: true
+mermaid: true
 ---
 
 ## Test post please ignore
@@ -49,6 +50,19 @@ echo hello world | cut -d' ' -f 1
     b -- c
     c -- a
   }
+{{% /graphviz %}}
+
+### Mermaid support
+
+{{% mermaid %}}
+  graph TD
+  A[Enter Chart Definition] --> B(Preview)
+  B --> C{decide}
+  C --> D[Keep]
+  C --> E[Edit Definition]
+  E --> B
+  D --> F[Save Image and Code]
+  F --> B
 {{% /graphviz %}}
 
 ### Spoilers
