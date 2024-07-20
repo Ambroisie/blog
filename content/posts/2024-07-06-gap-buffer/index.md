@@ -37,7 +37,7 @@ shorter/longer as required.
 ## Implementation
 
 I'll be writing a sample implementation in Python, as with the rest of the
-[series]({{< ref "/series/cool-algorithms/">}}). I don't think it showcases the
+[series]({{< ref "/series/cool-algorithms/" >}}). I don't think it showcases the
 elegance of the _Gap Buffer_ in action like a C implementation full of
 `memmove`s would, but it does makes it short and sweet.
 
