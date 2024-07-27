@@ -103,3 +103,28 @@ def merge(
         return right
     raise RuntimeError("Unreachable")
 ```
+
+### Insertion
+
+Inserting a node into the tree is done in two steps:
+
+1. `split` the tree to isolate the middle insertion point
+2. `merge` it back up to form a full tree with the inserted key
+
+```python
+def insert(self, key: K, value: V) -> bool:
+    # `left` and `right` come before/after the key
+    left, node, right = split(self._root, key)
+    was_updated: bool
+    # Create the node, or update its value, if the key was already in the tree
+    if node is None:
+        node = Node(key, value)
+        was_updated = False
+    else:
+        node.value = value
+        was_updated = True
+    # Rebuild the tree with a couple of merge operations
+    self._root = merge(left, merge(node, right))
+    # Signal whether the key was already in the key
+    return was_updated
+```
