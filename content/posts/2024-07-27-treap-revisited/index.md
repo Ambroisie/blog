@@ -27,3 +27,12 @@ rather than the fiddly process of deletion using tree rotations.
 [rb]: https://en.wikipedia.org/wiki/Red%E2%80%93black_tree
 
 <!--more-->
+
+## Implementation
+
+All operations on the tree will be implemented in terms of two fundamental
+operations: `split` and `merge`.
+
+We'll be reusing the same structures as in the last post, so let's skip straight
+to implementing those fundaments, and building on them for `insert` and
+`delete`.
