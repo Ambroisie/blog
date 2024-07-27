@@ -36,3 +36,40 @@ operations: `split` and `merge`.
 We'll be reusing the same structures as in the last post, so let's skip straight
 to implementing those fundaments, and building on them for `insert` and
 `delete`.
+
+### Split
+
+Splitting a tree means taking a key, and getting the following output:
+
+* a `left` node, root of the tree of all keys lower than the input.
+* an extracted `node` which corresponds to the input `key`.
+* a `right` node, root of the tree of all keys higher than the input.
+
+```python
+type OptionalNode[K, V] = Node[K, V] | None
+
+class SplitResult(NamedTuple):
+    left: OptionalNode
+    node: OptionalNode
+    right: OptionalNode
+
+def split(root: OptionalNode[K, V], key: K) -> SplitResult:
+    # Base case, empty tree
+    if root is None:
+        return SplitResult(None, None, None)
+    # If we found the key, simply extract left and right
+    if root.key == key:
+        left, right = root.left, root.right
+        root.left, root.right = None, None
+        return SplitResult(left, root, right)
+    # Otherwise, recurse on the corresponding side of the tree
+    if root.key < key:
+        left, node, right = split(root.right, key)
+        root.right = left
+        return SplitResult(root, node, right)
+    if key < root.key:
+        left, node, right = split(root.left, key)
+        root.left = right
+        return SplitResult(left, node, root)
+    raise RuntimeError("Unreachable")
+```
