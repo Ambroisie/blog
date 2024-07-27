@@ -128,3 +128,19 @@ def insert(self, key: K, value: V) -> bool:
     # Signal whether the key was already in the key
     return was_updated
 ```
+
+### Removal
+
+Removing a key from the tree is similar to inserting a new key, and forgetting
+to insert it back: simply `split` the tree and `merge` it back without the
+extracted middle node.
+
+```python
+def remove(self, key: K) -> bool:
+    # `node` contains the key, or `None` if the key wasn't in the tree
+    left, node, right = split(self._root, key)
+    # Put the tree back together, without the extract node
+    self._root = merge(left, right)
+    # Signal whether `key` was mapped in the tree
+    return node is not None
+```
