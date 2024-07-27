@@ -73,3 +73,33 @@ def split(root: OptionalNode[K, V], key: K) -> SplitResult:
         return SplitResult(left, node, root)
     raise RuntimeError("Unreachable")
 ```
+
+### Merge
+
+Merging a `left` and `right` tree means (cheaply) building a new tree containing
+both of them. A pre-condition for merging is that the `left` tree is composed
+entirely of nodes that are lower than any key in `right` (i.e: as in `left` and
+`right` after a `split`).
+
+```python
+def merge(
+    left: OptionalNode[K, V],
+    right: OptionalNode[K, V],
+) -> OptionalNode[K, V]:
+    # Base cases, left or right being empty
+    if left is None:
+        return right
+    if right is None:
+        return left
+    # Left has higher priority, it must become the root node
+    if left.priority >= right.priority:
+        # We recursively reconstruct its right sub-tree
+        left.right = merge(left.right, right)
+        return left
+    # Right has higher priority, it must become the root node
+    if left.priority < right.priority:
+        # We recursively reconstruct its left sub-tree
+        right.left = merge(left, right.left)
+        return right
+    raise RuntimeError("Unreachable")
+```
