@@ -67,6 +67,7 @@ params:
   webmentions:
     login: belanyi.fr
     pingback: true
+  mathjax: true
 
 taxonomies:
   category: "categories"
