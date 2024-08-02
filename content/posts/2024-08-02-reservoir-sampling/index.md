@@ -81,3 +81,65 @@ probability $\frac{1}{N} \cdot \frac{N}{N + 1} = \frac{1}{N + 1}$ of being the
 element.
 
 And thus, we have proven $H_{N + 1}$ at the end of the loop.
+
+## Sampling $k$ element
+
+The code for sampling $k$ elements is very similar to the one-element case.
+
+```python
+def sample[T](stream: Iterable[T], k: int = 1) -> list[T]:
+    stream_iter = iter(stream)
+    # Retain the first 'k' elements in the reservoir
+    res = list(itertools.islice(stream_iter, k))
+    for i, val in enumerate(stream_iter, start=k):
+        j = random.randint(0, i)
+        # Replace one element at random with probability k/(i + 1)
+        if j < k:
+            res[j] = val
+    # Return 'k' randomly sampled elements
+    return res
+```
+
+### Proof
+
+Let us once again do a proof by induction, assuming the stream contains at least
+$k$ items.
+
+#### Hypothesis $H_N$
+
+After iterating through the first $N$ items in the stream, each of them has had
+an equal $\frac{k}{N}$ probability of being sampled from the stream.
+
+#### Base Case $H_k$
+
+We can trivially observe that the first $k$ element are sampled at the start of
+the algorithm, $\frac{k}{k} = 1$, the hypothesis has been verified.
+
+#### Inductive Case
+
+For a given $N$, let us assume that $H_N$ holds. Let us now look at the events
+of the loop iteration where `i = N`, in order to prove $H_{N + 1}$.
+
+`j = random.randint(0, i)` uniformly selects a value in the range $[0, i]$,
+a.k.a $[0, N]$. We then have three cases:
+
+* `j >= k`, with probability $1 - \frac{k}{N + 1}$: we do not modify the
+sampled reservoir at all.
+
+* `j < k`, with probability $\frac{k}{N + 1}$: we sample the new element to
+replace the `j`-th element of the reservoir. Therefore for any element
+$e \in [0, k[$ we can either have:
+  * $j = e$: the element _is_ replaced, probability $\frac{1}{k}$.
+  * $j \neq e$: the element is _not_ replaced, probability $\frac{k - 1}{k}$.
+
+We can now compute the probability that a previously sampled element is kept in
+the reservoir:
+$1 - \frac{k}{N + 1} + \frac{k}{N + 1} \cdot \frac{k - 1}{k} = \frac{N}{N + 1}$.
+
+By $H_N$, any of the first $N$ elements had a $\frac{k}{N}$ probability
+of being sampled before at the start of the loop, each element now has a
+probability $\frac{k}{N} \cdot \frac{N}{N + 1} = \frac{k}{N + 1}$ of being the
+element.
+
+We have now proven that all elements have a probability $\frac{k}{N + 1}$ of
+being sampled at the end of the loop, therefore $H_{N + 1}$ has been verified.
