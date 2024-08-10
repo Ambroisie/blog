@@ -201,3 +201,31 @@ class KdNode[T]:
             self.inner = split_leaf(self.inner, split_axis)
         return res
 ```
+
+### Searching for a point
+
+Looking for a given point in the tree look very similar to a _BST_'s search,
+each leaf node dividing the space into two sub-spaces, only one of which
+contains the point.
+
+```python
+class KdTree[T]:
+    def lookup(self, point: Point) -> T | None:
+        # Forward to the root node
+        return self._root.lookup(point)
+
+class KdNode[T]:
+    def lookup(self, point: Point) -> T | None:
+        # Forward to the wrapped node
+        return self.inner.lookup(point)
+
+class KdLeafNode[T]:
+    def lookup(self, point: Point) -> T | None:
+        # Simply check whether we've stored the point in this leaf
+        return self.points.get(point)
+
+class KdSplitNode[T]:
+    def lookup(self, point: Point) -> T | None:
+        # Recurse into the child which contains the point
+        return self.children[self._index(point)].lookup(point)
+```
