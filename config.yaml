@@ -6,8 +6,6 @@ theme:
   - "hugo-atom-feed"
   - "anubis"
 paginate: 5
-disqusShortname: ""
-googleAnalytics: ""
 enableRobotsTXT: true
 enableEmoji: true
 
@@ -68,6 +66,12 @@ params:
     login: belanyi.fr
     pingback: true
   mathjax: true
+
+services:
+  disqus:
+    shortname: ""
+  googleAnalytics:
+    ID: ""
 
 taxonomies:
   category: "categories"
