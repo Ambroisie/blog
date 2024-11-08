@@ -76,7 +76,7 @@ services:
 taxonomies:
   category: "categories"
   tag: "tags"
-  serie: "series"
+  series: "series"
 
 markup:
   goldmark:
