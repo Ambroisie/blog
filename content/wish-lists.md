@@ -18,9 +18,6 @@ A few of my Amazon wish lists in case you want to give me a gift.
   * [Chef's presses](https://www.thechefspress.com/shop)
     * [UK link](https://www.kitchenprovisions.co.uk/products/the-chefs-press-8oz-13oz)
     * [FR link](https://www.thekitchenlab.fr/fr/p/la-presse-du-chef-poids-de-friture-bruce-hill-13-oz/)
-  * Knives
-    * [Gyuto, damascus finish, 210mm](https://www.kitchenprovisions.co.uk/collections/stainless-steel/products/gyuto-knife-vg10-damascus-finish-ohishi)
-    * [Gyuto, polished finish, black ferrule 240mm](https://www.kitchenprovisions.co.uk/collections/sukenari/products/gyuto-knife-hap40-powder-steel-polished-finish-sukenari?variant=39743545016382)
   * [Combustion Inc thermometer and
   display](https://combustion.inc/products/predictive-thermometer-gen2-wifi-display)
     * [Get the one with the range extender if you *really* want to spoil
