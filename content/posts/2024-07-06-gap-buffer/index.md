@@ -133,7 +133,7 @@ and moving the start of the gap further right.
 
 ```python
 def insert(self, val: str) -> None:
-    # Ensure we have enouh space to insert the whole string
+    # Ensure we have enough space to insert the whole string
     if len(val) > self.gap_length:
         self.grow(max(self.capacity * 2, self.string_length + len(val)))
     # Fill the gap with the given string
@@ -163,7 +163,7 @@ def delete(self, dist: int = 1) -> None:
 ### Moving the cursor
 
 Moving the cursor along the buffer will shift letters from one side of the gap
-to the other, moving them accross from prefix to suffix and back.
+to the other, moving them across from prefix to suffix and back.
 
 I find Python's list slicing not quite as elegant to read as a `memmove`, though
 it does make for a very small and efficient implementation.

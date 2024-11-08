@@ -261,7 +261,7 @@ this new `SpaceStation` variant at every point you `visit` the `SpaceObject`s.
 
 ## The Expression Problem
 
-One issue we have not been able to move past in these exemples is the
+One issue we have not been able to move past in these examples is the
 [Expression Problem][expression-problem]. In two words, this means that we can't
 add a new data type (e.g: `SpaceStation`), or a new operation (e.g: `land_on`)
 to our current code without re-compiling it.

@@ -134,7 +134,7 @@ branch.
 #### Fixup, a practical example
 
 A specific kind of squashing which I use frequently is the notion of `fixup`s.
-Say you've commited a change (*A*), and later on notice that it is missing
+Say you've committed a change (*A*), and later on notice that it is missing
 a part of the changeset. You can decide to commit that missing part (*A-bis*)
 and annotate it to mean that it is linked to *A*.
 
@@ -184,7 +184,7 @@ After applying the rebase, you find yourself with the complete change inside
 
 This is especially useful when you want to apply suggestion on a merge request
 after it was reviewed. You can keep a clean history without those pesky `Apply
-suggestion ...` commmits being part of your history.
+suggestion ...` commits being part of your history.
 
 ### Lost commits and the reflog
 
