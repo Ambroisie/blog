@@ -22,3 +22,5 @@ A few of my Amazon wish lists in case you want to give me a gift.
   display](https://combustion.inc/products/predictive-thermometer-gen2-wifi-display)
     * [Get the one with the range extender if you *really* want to spoil
     me](https://combustion.inc/products/predictive-thermometer-gen2-wifi-booster-wifi-display)
+  * [Cannelés
+  molds](https://www.laboetgato.fr/en/moules-a-canneles/13964-mould-for-canneles-non-polished-copper-o-45-mm-3333331010026.html)
