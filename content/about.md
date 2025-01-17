@@ -4,7 +4,7 @@ description: "About me"
 date: 2020-07-14
 ---
 
-I'm currently working as a Senior Software Engineer at [Google][google], as part
+I'm currently working as a Software Engineer at [Google][google], as part
 of their Embedded Graphics Drivers team for Pixel devices.
 
 [google]: https://www.linkedin.com/company/google/mycompany/verification/
