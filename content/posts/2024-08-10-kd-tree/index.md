@@ -298,7 +298,7 @@ class AABB(NamedTuple):
         )
 
     # Extend a box to contain a given point
-    def extend(self, point: Point) -> None:
+    def extend(self, point: Point) -> AABB:
         low = NamedTuple(*(map(min, zip(self.low, point))))
         high = NamedTuple(*(map(max, zip(self.high, point))))
         return AABB(low, high)
@@ -392,7 +392,7 @@ class MaxHeap[T]:
         return heapq.heappop(self._heap).value
 
     # Pushes a value onto the heap, pops and returns the highest value
-    def pushpop(self, value: T) -> None:
+    def pushpop(self, value: T) -> T:
         return heapq.heappushpop(self._heap, Reverse(value)).value
 ```
 
@@ -452,7 +452,7 @@ class KdSplitNode[T]:
     def closest(
         self,
         point: Point,
-        out: list[ClosestPoint[T]],
+        out: MaxHeap[ClosestPoint[T]],
         n: int,
         bounds: AABB,
     ) -> None:
