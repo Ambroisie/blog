@@ -1,5 +1,5 @@
 ---
-title: "Kd Tree Revisited"
+title: "k-d Tree Revisited"
 date: 2024-08-17T14:20:22+01:00
 draft: false # I don't care for draft mode, git has branches for that
 description: "Simplifying the nearest neighbour search"
