@@ -92,7 +92,7 @@ class KdSplitNode[T]:
     def closest(
         self,
         point: Point,
-        out: list[ClosestPoint[T]],
+        out: MaxHeap[ClosestPoint[T]],
         n: int,
         projection: Point,
     ) -> None:
